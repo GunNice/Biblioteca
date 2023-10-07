@@ -22,7 +22,7 @@ public class LivroServiceImpl implements LivroService {
     public List<LivroDto> obterLivros() {
         return repositorio.findAll()
             .stream()
-            .map(p -> new LivroDto(p.getTitulo()))
+            .map(p -> new LivroDto(p.getTitulo(), p.getEditora(), p.getAutor()))
             .toList();
     }
 

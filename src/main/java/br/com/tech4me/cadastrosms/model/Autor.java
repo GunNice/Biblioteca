@@ -1,6 +1,6 @@
 package br.com.tech4me.cadastrosms.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,7 +12,7 @@ public class Autor {
     @Id
     private String id;
     private String nome;
-    private Date nascimento;
+    private LocalDate nascimento;
 
     public Autor() {}
 
@@ -36,10 +36,10 @@ public class Autor {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public Date getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 

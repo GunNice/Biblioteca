@@ -7,10 +7,12 @@ import jakarta.validation.constraints.NotNull;
 
 
 public record LivroCompletoDto (String id,
-    @NotEmpty(message = "Campo nome deve ser informado!")
-    @NotBlank(message = "Tá com caracteres em branco mas sem o nome.")
+    @NotEmpty(message = "Campo Titulo deve ser informado!")
+    @NotBlank(message = "Tá com caracteres em branco mas sem o Titulo.")
     String titulo,
-    @NotNull(message = "Valores válidos:  ALEPH, SUMA, ROCCO, GLOBO, SARAIVA, GENTE ")
+    @NotEmpty(message = "Campo Editora deve ser informado!")
+    @NotBlank(message = "Campos Editorar tem Caracter em branco.")
+    @NotNull(message = "Valor inválido selecionar um destes:  ALEPH, SUMA, ROCCO, GLOBO, SARAIVA, GENTE ")
     Editora editora){
     
 }

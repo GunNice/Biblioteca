@@ -21,7 +21,7 @@ public class AutorServiceImpl implements AutorService {
     public List<AutorDto> obterAutores() {
         return repositorio.findAll()
             .stream()
-            .map(p -> new AutorDto(p.getNome()))
+            .map(p -> new AutorDto(p.getNome(), p.getNascimento()))
             .toList();
     }
 
@@ -39,7 +39,7 @@ public class AutorServiceImpl implements AutorService {
     }
 
     @Override
-    public AutorCompletoDto cadastrar(AutorCompletoDto dto) {
+    public AutorCompletoDto cadastrarAutores(AutorCompletoDto dto) {
         Autor autor = new Autor(dto);
         repositorio.save(autor);
 

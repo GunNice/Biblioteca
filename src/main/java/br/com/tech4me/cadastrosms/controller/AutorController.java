@@ -50,8 +50,8 @@ public class AutorController {
     }
 
     @PostMapping
-    private ResponseEntity<AutorCompletoDto> cadastrarAutor(@RequestBody @Valid AutorCompletoDto autor) {
-        return new ResponseEntity<>(servico.cadastrar(autor), HttpStatus.CREATED);
+    private ResponseEntity<AutorCompletoDto> cadastrarAutores(@RequestBody @Valid AutorCompletoDto autor) {
+        return new ResponseEntity<>(servico.cadastrarAutores(autor), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
