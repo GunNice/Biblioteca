@@ -22,7 +22,7 @@ public class LivroServiceImpl implements LivroService {
     public List<LivroDto> obterLivros() {
         return repositorio.findAll()
             .stream()
-            .map(p -> new LivroDto(p.getTitulo(), p.getEditora(), p.getAutor()))
+            .map(p -> new LivroDto(p.getId(), p.getTitulo(), p.getAutorId(), p.getEditora()))
             .toList();
     }
 
@@ -33,6 +33,7 @@ public class LivroServiceImpl implements LivroService {
         if (livro.isPresent()) {
             return Optional.of(new LivroCompletoDto(livro.get().getId(),
                 livro.get().getTitulo(),
+                livro.get().getAutorId(),
                 livro.get().getEditora()));
         } else {
             return Optional.empty();
@@ -46,7 +47,13 @@ public class LivroServiceImpl implements LivroService {
 
         return new LivroCompletoDto(livro.getId(),
             livro.getTitulo(),
+            livro.getAutorId(),
             livro.getEditora());
+    }
+    @Override
+    public List<Livro> getLivrosDoAutor(String autorId) {
+        // Consulte o banco de dados para encontrar todos os livros com o ID do autor
+        return repositorio.findByAutorId(autorId);
     }
 
     @Override
@@ -59,6 +66,7 @@ public class LivroServiceImpl implements LivroService {
             repositorio.save(livroAtualizar);
             return new LivroCompletoDto(livroAtualizar.getId(),
                 livroAtualizar.getTitulo(),
+                livroAtualizar.getAutorId(),
                 livroAtualizar.getEditora());
         } else {
             return null;

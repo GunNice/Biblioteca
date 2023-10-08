@@ -10,8 +10,7 @@ public record LivroCompletoDto (String id,
     @NotEmpty(message = "Campo Titulo deve ser informado!")
     @NotBlank(message = "Tá com caracteres em branco mas sem o Titulo.")
     String titulo,
-    @NotEmpty(message = "Campo Editora deve ser informado!")
-    @NotBlank(message = "Campos Editorar tem Caracter em branco.")
+    String autorId,
     @NotNull(message = "Valor inválido selecionar um destes:  ALEPH, SUMA, ROCCO, GLOBO, SARAIVA, GENTE ")
     Editora editora){
     

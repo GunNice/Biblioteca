@@ -2,8 +2,10 @@ package br.com.tech4me.cadastrosms.model;
 
 import java.time.LocalDate;
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 
 import br.com.tech4me.cadastrosms.shared.AutorCompletoDto;
@@ -13,6 +15,7 @@ public class Autor {
     private String id;
     private String nome;
     private LocalDate nascimento;
+   
 
     public Autor() {}
 
@@ -20,9 +23,7 @@ public class Autor {
         this.id = dto.id();
         this.nome = dto.nome();
        
-      
     }
-
 
     public String getId() {
         return id;
@@ -42,6 +43,7 @@ public class Autor {
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
+   
 
     
 }

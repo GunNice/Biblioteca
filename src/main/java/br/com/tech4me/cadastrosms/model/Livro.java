@@ -12,7 +12,9 @@ public class Livro {
     private Editora editora;
     private Autor autor;
     private boolean locado;
+    private String autorId;
 
+   
     public Livro() {}
 
     public Livro(LivroCompletoDto dto) {
@@ -52,6 +54,14 @@ public class Livro {
     public void setLocado(boolean locado) {
         this.locado = locado;
     }
+     public String getAutorId() {
+        return autorId;
+    }
+
+    public void setAutorId(String autorId) {
+        this.autorId = autorId;
+    }
+
     
 
 

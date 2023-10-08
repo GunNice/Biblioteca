@@ -24,6 +24,7 @@ public class AutorServiceImpl implements AutorService {
             .map(p -> new AutorDto(p.getNome(), p.getNascimento()))
             .toList();
     }
+ 
 
     @Override
     public Optional<AutorCompletoDto> obterPorId(String id) {
@@ -68,5 +69,6 @@ public class AutorServiceImpl implements AutorService {
     public void excluirPorId(String id) {
         repositorio.deleteById(id);
     }
+    
     
 }

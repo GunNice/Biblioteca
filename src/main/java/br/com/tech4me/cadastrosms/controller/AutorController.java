@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import br.com.tech4me.cadastrosms.model.Livro;
 import br.com.tech4me.cadastrosms.service.AutorService;
+import br.com.tech4me.cadastrosms.service.LivroService;
 import br.com.tech4me.cadastrosms.shared.AutorCompletoDto;
 import br.com.tech4me.cadastrosms.shared.AutorDto;
 import jakarta.validation.Valid;
@@ -27,6 +30,7 @@ public class AutorController {
 
     @Autowired
     private AutorService servico;
+    private LivroService livroService;
 
      @GetMapping("/porta")
     private String obterPorta(@Value("${local.server.port}") String porta) {
@@ -48,6 +52,18 @@ public class AutorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/autores/{id}/livros")
+    public ResponseEntity<List<Livro>> getLivrosDoAutor(@PathVariable String id) {
+    // Chame o serviço LivroService para obter os livros do autor
+         List<Livro> livrosDoAutor = livroService.getLivrosDoAutor(id);
+
+            if (livrosDoAutor != null && !livrosDoAutor.isEmpty()) {
+             return ResponseEntity.ok(livrosDoAutor);
+             } else {
+                 return ResponseEntity.notFound().build();
+              }
+        }
+
 
     @PostMapping
     private ResponseEntity<AutorCompletoDto> cadastrarAutores(@RequestBody @Valid AutorCompletoDto autor) {
