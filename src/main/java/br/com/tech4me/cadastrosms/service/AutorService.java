@@ -2,7 +2,6 @@ package br.com.tech4me.cadastrosms.service;
 import java.util.List;
 import java.util.Optional;
 
-
 import br.com.tech4me.cadastrosms.shared.AutorCompletoDto;
 import br.com.tech4me.cadastrosms.shared.AutorDto;
 

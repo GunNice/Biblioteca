@@ -2,10 +2,8 @@ package br.com.tech4me.cadastrosms.model;
 
 import java.time.LocalDate;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 
 import br.com.tech4me.cadastrosms.shared.AutorCompletoDto;
