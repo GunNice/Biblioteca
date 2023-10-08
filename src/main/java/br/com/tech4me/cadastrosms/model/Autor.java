@@ -1,6 +1,5 @@
 package br.com.tech4me.cadastrosms.model;
 
-
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
